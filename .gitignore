@@ -1,0 +1,7 @@
+chris-env/
+*.pt
+*.jpg
+*.mp4
+*.avi
+runs/
+_pycache_/
