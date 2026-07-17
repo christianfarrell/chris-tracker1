@@ -40,6 +40,10 @@ python week1/detect_video.py
 # Webcam real-time detection
 python week2/detect_webcam.py
 
+python week2/detect_webcam_fps.py
+
+python week2/detect_webcam_filtre_classes.py
+
 # Object tracking with trajectory
 python week3/track_objects.py
 ```
