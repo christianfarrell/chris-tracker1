@@ -3,7 +3,7 @@
 A real-time object detection and tracking system built with YOLOv8 and ByteTrack.
 
 ## Demo
-*(Demo GIF coming soon)*
+*(Demo video coming soon)*
 
 ## Features
 - Real-time object detection via webcam
