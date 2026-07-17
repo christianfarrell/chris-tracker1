@@ -1,13 +1,13 @@
 
 from ultralytics import YOLO
 
-# Charge le modèle pré-entraîné
+# load the model
 model = YOLO("yolov8n.pt")
 
-# Détection sur une image en ligne
+# Detect on a picture  , if it is a local picture use C:/Users/nom_user/pictures/photo.jpg
 results = model("https://ultralytics.com/images/bus.jpg", save=True)
 
-# Affiche les résultats dans le terminal
+# show the results on the terminal 
 for box in results[0].boxes:
     print("Classe    :", results[0].names[int(box.cls)])
     print("Confiance :", round(float(box.conf), 2))
