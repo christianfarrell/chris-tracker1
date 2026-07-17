@@ -3,13 +3,13 @@ import cv2
 import time
 from ultralytics import YOLO
 
-# Charge le modèle
+# load the model
 model = YOLO("yolov8n.pt")
 
-# Ouvre la webcam (0 = intégrée, 1 = externe)
+# open the webcam(0 = integrated, 1 = extern)
 cap = cv2.VideoCapture(1)
 
-# Classes à détecter (0=personne, 39=bouteille, 67=téléphone)
+# Classes to detect (0=people, 39=bottles, 67=cell phones )
 CLASSES = [0, 39, 67]
 
 print("Webcam démarrée — appuie sur Q pour quitter")
@@ -22,22 +22,22 @@ while True:
         print("Erreur webcam")
         break
 
-    # Calcule le FPS
+    # Calcul FPS
     curr_time = time.time()
     fps = 1 / (curr_time - prev_time)
     prev_time = curr_time
 
-    # Détection sur les classes choisies seulement
+    # Détect only on chosen classes 
     results = model(frame, verbose=False, classes=CLASSES)
 
-    # Dessine les bounding boxes
+    # Draw the boxes' boundary 
     annotated = results[0].plot()
 
-    # Affiche le FPS en vert
+    # show the fps in grren 
     cv2.putText(annotated, f"FPS: {int(fps)}", (10, 30),
                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
-    # Affiche la fenêtre
+    # show the window 
     cv2.imshow("YOLOv8 - Detection temps réel", annotated)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
